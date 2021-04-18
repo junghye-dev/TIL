@@ -38,3 +38,15 @@ obj.foo(); // 2
 - `call()`, `apply()` 메서드 사용한다.
 - `this`에 바인딩할 객체를 첫번째 인자로 받아서 함수 호출 시에 해당 객체를 `this`로 세팅한다. -> 객체 직접 바인딩!
 
+4. new 바인딩
+```
+function foo(a) {
+  this.a = a;
+}
+var bar = new foo(2);
+console.log(bar.a); // 2
+```
+- 앞에 `new`를 붙여서 `foo()`를 호출했고 새로 생성된 객체는 `foo` 호출 시 `this`에 바인딩 된다.
+- `new`는 함수 호출 시 `this`를 새 객체와 바인딩하는 방법
+
+총 이렇게 4가지 방법으로 `this` 바인딩을 할 수 있다.
