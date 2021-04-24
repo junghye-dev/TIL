@@ -21,13 +21,13 @@ TypeScript
 결국은 런타임 환경이 아니라, 컴파일 환경에서 내가 직접 개발을 하는 과정에서 타입 에러를 막고, 좀 더 단단한 구조의 프로그램을 만들 수 있기 위해 TypeScript를 배워야하는 것이다. (특히 프로젝트 규모가 클 때 그 필요성이 커진다.)
 
 ## 기본 타입
-1. Boolean (불리언)
+1. `Boolean` (불리언)
   
     참, 거짓
     ```typescript
     let isDone: boolean = false;
     ```
-2. Number (숫자)
+2. `Number` (숫자)
 
     부동 소수값. 16진수, 10진수, 리터럴, 2진수, 8진수 리터럴
     ```typescript
@@ -36,7 +36,7 @@ TypeScript
     let binary: number = 0b1010; // 2진수 (0과 1로만 숫자로 수 표현)
     let octal: number = 0o744; // 8진수 (0부터 7까지의 숫자로 수 표현)
     ```
-3. String (문자열)
+3. `String` (문자열)
     ```typescript
     let color: string = "blue";
     color = 'red';
@@ -45,7 +45,7 @@ TypeScript
     let age: number = 37;
     let sentence: string = `Hello, my name is ${ fullName }.I'll be ${ age + 1 } years old next month.`; // 템플릿 문자열 가능
     ```
-4. Array (배열)
+4. `Array` (배열)
 
     두 가지 방법으로 표현 가능
     ```typescript
@@ -57,7 +57,7 @@ TypeScript
     let list: Array<number> = [1, 2, 3];
     // array 이고, number 타입으로 이루어져있다.
     ```
-5. Tuple (튜플)
+5. `Tuple` (튜플)
 
     요소의 타입과 개수가 **고정**된 **배열**. 그러나 요소들의 타입이 모두 같을 필요는 없다.
     ```typescript
@@ -70,7 +70,7 @@ TypeScript
     // 잘못된 초기화
     x = [10, "hello"]; // 오류(number, string 이어서)
     ```
-6. Enum (열거)
+6. `Enum` (열거)
 
     제일 헷갈리는 것.
     Enum의 각 원소는 값으로도, 타입으로도 사용될 수 있다.
@@ -145,12 +145,109 @@ TypeScript
     var c = Color.Green;
     ```
     출처: [TypeScript enum을 사용하지 않는 게 좋은 이유를 Tree-shaking 관점에서 소개합니다.](https://engineering.linecorp.com/ko/blog/typescript-enum-tree-shaking/)
-7. Any
-8. Void
-9. Null and Undefined
-10. Never
-11. Object
+7. `Any`
+
+    알지 못하는 타입을 표현해야 할 때 사용한다. 타입 검사를 하지 않음.
+    ```typescript
+    let notSure: any = 4;
+    notSure = 'maybe a string instead';
+    notSure = false; // 성공
+    ```
+    타입의 일부만 알고, 전체는 알지 못할 떄도 유용하다. 각자 타입이 다른 배열을 다루는 데에 용이하다.
+    ```typescript
+    let list: any[] = [1, true, "free"];
+
+    list[1] = 100; // 그냥 100 할당해도 된다.
+    ```
+8. `Void`
+  
+    어떤 타입도 존재할 수 없음! 마치 `any`의 반대 타입 같다. `void`는 보통 함수에서 반환 값이 없을 때 반환 타입을 표현하기 위해 사용한다.
+    ```typescript 
+    function warnUser(): void {
+      console.log("This is my warning message");
+      // 따로 return 값이 없는 함수의 타입을 설정할 때
+    }
+
+    // 만약 뭔가를 return하는 함수 타입에 void를 사용하면?
+    function warnUser(): void {
+      console.log("This is my warning message");
+      
+      return 2;// ERROR
+      // Type 'number' is not assignable to type 'void'.
+    }
+    ```
+
+    ```typescript
+    let unusable: void = undefined;
+    unusable = null; // 성공한다. null과 undefined만 할당 가능
+    ```
+9. `Null` and `Undefined`
+    둘 다 자기 자신만 할당 할 수 있다.
+    ```typescript
+    let u: undefined = undefined;
+    let n: null = null;
+    ```
+
+    이 `null`과 `undefined`는 다른 모든 타입의 하위 타입으로, `string`, `number`와 같은 다른 타입을 지정한 곳에도 할당이 가능하다.
+
+    그래서 typescript에서는 strict하게 사용하길 권하는데, `--strictNullChecks` 옵션을 켜는 것이다.
+10. `Never`
+    
+    절대 발생할 수 없는 타입으로, 함수 표현식이나 화살표 함수 표현식에서 항상 에러를 발생시키거나 무한 루프 때문에 종료되지 함수 등 절대 리턴하지 않는 함수에 반환 타입으로 사용된다.
+
+    모든 타입에 할당 가능한 하위 타입이나, 어떤 타입도 `never`에 할당할 수는 없다.
+    ```typescript
+    // never를 반환하는 함수는 함수의 마지막에 도달할 수 없다.
+    function error(message: string): never {
+        throw new Error(message);
+    }
+
+    // 반환 타입이 never로 추론된다.
+    function fail() {
+        return error("Something failed");
+    }
+
+    // never를 반환하는 함수는 함수의 마지막에 도달할 수 없다.
+    function infiniteLoop(): never {
+        while (true) {
+        }
+    }
+    ```
+    아무것도 반환하지 않는 함수는 `void` 사용!
+
+11. `object`
+
+    원시 타입(`number`, `string`, `boolean`, `symbol`, `null`, `undefined`)이 아닌 나머지 타입, 즉 객체(객체의 하위 타입인 함수, 배열도 되겠지)를 나타낸다.
+    ```typescript
+    declare function create(o: object | null): void;
+
+    create({ prop: 0 }); // 성공 (object)
+    create(null); // 성공 (null)
+
+    create(42); // 오류 (number)
+    create("string"); // 오류 (string)
+    create(false); // 오류 (boolean)
+    create(undefined); // 오류 (undefined)
+    ```
 12. Type assertions (타입 단언)
+
+    타입 단언(Type assertions) 은 컴파일러에게 "날 믿어, 난 내가 뭘 하고 있는지 알아"라고 말해주는 방법.
+    
+    두 가지 형태로 사용할 수 있다.
+
+    ```typescript
+    // 1. angel-bracket 문법
+    let someValue: any = "this is a string"; // any로 선언했지만
+
+    let strLength: number = (<string>someValue).length; // someValue가 string이라고 단언해준다는 건가?
+    ```
+    
+    ```typescript
+    // 2. as 문법 (jsx에 사용할 때는 이 스타일만 허용된다.)
+    let someValue: any = "this is a string";
+
+    let strLength: number = (someValue as string).length;
+    ```
 ## 타입 표기 (Type annotations)
 ```typescript
 function greeter(person: string) {
