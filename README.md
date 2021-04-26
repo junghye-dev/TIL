@@ -8,7 +8,9 @@
 ## JavaScript
 - [this](https://github.com/junghye-dev/TIL/blob/main/JavaScript/this.md)
 - [객체](https://github.com/junghye-dev/TIL/blob/main/JavaScript/%EA%B0%9D%EC%B2%B4.md)
-- [React](https://github.com/junghye-dev/TIL/blob/main/React/setState().md)
+
+## React
+- [setState()](https://github.com/junghye-dev/TIL/blob/main/React/setState().md)
 
 ## TypeScript
 - [TypeScript](https://github.com/junghye-dev/TIL/blob/main/TypeScript/TypeScript.md)
