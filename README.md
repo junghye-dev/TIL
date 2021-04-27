@@ -15,5 +15,6 @@
 ## TypeScript
 - [TypeScript](https://github.com/junghye-dev/TIL/blob/main/TypeScript/TypeScript.md)
     - [Interface](https://github.com/junghye-dev/TIL/blob/main/TypeScript/Interface.md)
+    - [비동기 처리](https://github.com/junghye-dev/TIL/blob/main/JavaScript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC.mdㄴ)
 ## CSS
 - [SVG](https://github.com/junghye-dev/TIL/blob/main/CSS/svg.md)
