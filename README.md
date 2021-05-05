@@ -9,6 +9,7 @@
 - [this](https://github.com/junghye-dev/TIL/blob/main/JavaScript/this.md)
 - [객체](https://github.com/junghye-dev/TIL/blob/main/JavaScript/%EA%B0%9D%EC%B2%B4.md)
 - [비동기 처리](https://github.com/junghye-dev/TIL/blob/main/JavaScript/%EB%B9%84%EB%8F%99%EA%B8%B0%EC%B2%98%EB%A6%AC.md)
+- [class](https://github.com/junghye-dev/TIL/blob/main/JavaScript/%ED%81%B4%EB%9E%98%EC%8A%A4.md)
 
 ## React
 - [setState()](https://github.com/junghye-dev/TIL/blob/main/React/setState().md)
