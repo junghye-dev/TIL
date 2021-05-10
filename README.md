@@ -19,5 +19,9 @@
 - [TypeScript](https://github.com/junghye-dev/TIL/blob/main/TypeScript/TypeScript.md)
 - [Interface](https://github.com/junghye-dev/TIL/blob/main/TypeScript/Interface.md)
 - [Function](https://github.com/junghye-dev/TIL/blob/main/TypeScript/Function.md)
+
 ## CSS
 - [SVG](https://github.com/junghye-dev/TIL/blob/main/CSS/svg.md)
+
+## HTTP
+- [contentType](https://github.com/junghye-dev/TIL/blob/main/HTTP/contentType.md)
