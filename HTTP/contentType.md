@@ -47,3 +47,8 @@ $.ajax({
   dataType: 'json',
 })
 ```
+
+## 결론
+
+- API 호출 시 Header를 잘 살펴보자.
+  - 특히 API POST 시 Content-Type 및 Accept 부분을 잘 살펴봐야한다.
