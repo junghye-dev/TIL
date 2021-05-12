@@ -10,7 +10,7 @@ Content-Type: application/json
 Content-Type: application/x-www-form-urlencoded; charset=UTF-8
 ```
 
-[application/x-www-form-urlencoded](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/POST): &으로 분리되고, "=" 기호로 값과 키를 연결하는 key-value tuple로 인코딩되는 값입니다. 영어 알파벳이 아닌 문자들은 percent encoded 으로 인코딩됩니다. 따라서, 이 content type은 바이너리 데이터에 사용하기에는 적절치 않습니다. (바이너리 데이터에는 use multipart/form-data 를 사용해 주세요.)
+> [application/x-www-form-urlencoded](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/POST): &으로 분리되고, "=" 기호로 값과 키를 연결하는 key-value tuple로 인코딩되는 값입니다. 영어 알파벳이 아닌 문자들은 percent encoded 으로 인코딩됩니다. 따라서, 이 content type은 바이너리 데이터에 사용하기에는 적절치 않습니다. (바이너리 데이터에는 use multipart/form-data 를 사용해 주세요.)
 
 ## Content-Type이란?
 
