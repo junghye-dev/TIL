@@ -14,6 +14,7 @@
 
 ## React
 - [setState()](https://github.com/junghye-dev/TIL/blob/main/React/setState().md)
+- [useMemo](https://github.com/junghye-dev/TIL/blob/main/React/useMemo.md)
 
 ## TypeScript
 - [TypeScript](https://github.com/junghye-dev/TIL/blob/main/TypeScript/TypeScript.md)
